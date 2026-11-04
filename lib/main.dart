@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
-
+import 'package:firebase_core/firebase_core.dart';
 import 'bus.dart';
 import 'screens.dart';
 
 void main() async {
-  // Needed before using shared_preferences in main.
+  // Needed before using Firebase and shared_preferences in main.
   WidgetsFlutterBinding.ensureInitialized();
+
+  // Start Firebase before the app opens.
+  await Firebase.initializeApp();
 
   // The one bus used by the whole app.
   Bus bus = Bus();
